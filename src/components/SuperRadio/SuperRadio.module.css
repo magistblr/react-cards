@@ -1,0 +1,68 @@
+
+.wrapper {
+	display: flex;
+	margin-top: 10px;
+	width: 200px;
+}
+
+.radio.style_d {
+  display: inline_block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+	margin-left: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.radio.style_d input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.radio.style_d input:checked ~ .radio__checkmark {
+  background-color: #f7cb15;
+}
+.radio.style_d input:checked ~ .radio__checkmark:after {
+  opacity: 1;
+}
+.radio.style_d:hover input ~ .radio__checkmark {
+  background-color: #eee;
+}
+.radio.style_d:hover input:checked ~ .radio__checkmark {
+  background-color: #f7cb15;
+}
+.radio.style_d:hover input ~ .radio__body {
+  color: #f7cb15;
+}
+.radio.style_d .radio__checkmark {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #eee;
+  transition: background-color 0.25s ease;
+  border-radius: 11px;
+}
+.radio.style_d .radio__checkmark:after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.radio.style_d .radio__body {
+  color: #333;
+  font-size: 16px;
+  transition: color 0.25s ease;
+}
