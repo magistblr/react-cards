@@ -11,6 +11,8 @@ export const Test = () => {
   const arr = ['x', 'y', 'z']
   const [value, onChangeOption] = useState(arr[1])
 
+  const [valueEditableSpan, setValueEditableSpan] = useState<string>('dwd')
+
   return (
       <div className={s.wrapper}>
         <SuperButton>Enter</SuperButton>
@@ -18,7 +20,11 @@ export const Test = () => {
         <SuperInputText></SuperInputText>
         <SuperRadio options={arr} value={value} name={'radio'} onChangeOption={onChangeOption}></SuperRadio>
         <SuperSelect options={arr} value={value} onChangeOption={onChangeOption}></SuperSelect>
-        <SuperEditableSpan>Enter</SuperEditableSpan>
+        <SuperEditableSpan
+              value={valueEditableSpan}
+              onChangeText={setValueEditableSpan}
+              spanProps={{children: value ? undefined : 'enter text...'}}
+        />
       </div>
   );
 }
