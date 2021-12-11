@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './NewPassword.module.css';
+import s from './NewPassword.module.scss';
 
 export const NewPassword = () => {
   return (

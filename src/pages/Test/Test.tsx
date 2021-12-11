@@ -5,7 +5,7 @@ import SuperEditableSpan from '../../components/SuperEditableSpan/SuperEditableS
 import SuperInputText from '../../components/SuperInputText/SuperInputText';
 import SuperRadio from '../../components/SuperRadio/SuperRadio';
 import SuperSelect from '../../components/SuperSelect/SuperSelect';
-import s from './Test.module.css';
+import s from './Test.module.scss';
 
 export const Test = () => {
   const arr = ['x', 'y', 'z']

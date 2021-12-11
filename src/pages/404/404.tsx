@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './404.module.css';
+import s from './404.module.scss';
 
-export const NotFound = () => {
+export const BadRequest = () => {
   return (
       <div className={s.wrapper}>404</div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Registration.module.css';
+import s from './Registration.module.scss';
 
 export const Registration = () => {
   return (
