@@ -1,4 +1,6 @@
+@import "~sanitize.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import "vars";
 
 body {
   margin: 0;
@@ -7,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #000;
 }
 
 code {
@@ -14,5 +17,58 @@ code {
     monospace;
 }
 
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  text-align: center;
+}
 
-/* add test comment*/
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 1.2em;
+  text-align: center;
+}
+
+.formControl:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.formGroupInput {
+  position: relative;
+  margin-top: 2em;
+
+  .labelInput {
+    position: absolute;
+    left: 0;
+    top: -.8em;
+    font-size: 13px;
+    line-height: 1;
+    color: $mutedColor;
+  }
+}
+
+.primaryBtn {
+  border-color: $borderSecondColor;
+  color: $thirdColor;
+  background-color: $secondBg;
+
+  &:focus-visible {
+    border-color: $borderSecondColor;
+  }
+}
+
+.lightBtn {
+  border-color: $borderThirdColor;
+  color: $secondColor;
+  background-color: $thirdBg;
+
+  &:focus-visible {
+    border-color: $borderThirdColor;
+  }
+}
