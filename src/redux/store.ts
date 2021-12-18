@@ -5,7 +5,7 @@ import { packsReducer } from "./reducers/packsReducer";
 
 
 
-export type StateType = ReturnType<typeof rootReducer>
+export type RootStateType = ReturnType<typeof rootReducer>
 
 
 export const rootReducer = combineReducers({
