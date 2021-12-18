@@ -1,17 +1,15 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunkMiddleware from "redux-thunk"
-import { cardsReducer } from "./reducers/cardsReducer";
-import {registrationReducer} from "./reducers/registrationReducer";
+import thunkMiddleware from "redux-thunk";
+import { registrationReducer } from "./reducers/registrationReducer";
+import { loginReducer } from "./reducers/loginReducer";
 
 
 
-
-export type StateType = ReturnType<typeof rootReducer>
+export type RootStateType = ReturnType<typeof rootReducer>
 
 
 export const rootReducer = combineReducers({
-  cardsPage: cardsReducer,
-  // dialogsPage: dialogsReducer,
+  login: loginReducer,
   // sidebarPage: sidebarReducer,
   registrationPage: registrationReducer
 });

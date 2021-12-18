@@ -1,4 +1,3 @@
-import { cardsReducer } from './reducers/cardsReducer';
 import { AddedUserType } from './reducers/registrationReducer';
 
 
