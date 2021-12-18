@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Registration.module.scss";
-import SuperInputText from "../../components/SuperInputText/SuperInputText";
-import SuperButton from "../../components/SuperButton/SuperButton";
+import SuperInputText from "../../components/common/SuperInputText/SuperInputText";
+import SuperButton from "../../components/common/SuperButton/SuperButton";
 
 export const Registration = () => {
     return (
