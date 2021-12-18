@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunkMiddleware from "redux-thunk"
-import { cardsReducer } from "./reducers/cardsReducer";
+// import { cardsReducer } from "./reducers/cardsReducer";
+import { packsReducer } from "./reducers/packsReducer";
 
 
 
@@ -8,8 +9,8 @@ export type StateType = ReturnType<typeof rootReducer>
 
 
 export const rootReducer = combineReducers({
-  cardsPage: cardsReducer,
-  // dialogsPage: dialogsReducer,
+  // cardsPage: cardsReducer,
+  packsList: packsReducer,
   // sidebarPage: sidebarReducer,
 });
 

@@ -7,6 +7,7 @@ import { Profile } from '../../pages/Profile/Profile'
 import { Registration } from '../../pages/Registration/Registration'
 import { RestorePassword } from '../../pages/RestorePassword/RestorePassword'
 import { BadRequest } from '../../pages/404/404'
+import { PacksList } from '../../pages/PacksList/PacksList'
 
 
 const RoutesList = () => {
@@ -16,6 +17,8 @@ const RoutesList = () => {
             <Route path={'/register'} element={<Registration/>}/>
             <Route path={'/newPassword'} element={<NewPassword/>}/>
             <Route path={'/passwordRecovery'} element={<RestorePassword/>}/>
+            {/* <Route path={'/packs'} element={<Packs/>}/> */}
+            <Route path={'/packsList'} element={<PacksList/>}/>
             <Route path={'/profile'} element={<Profile/>}/>
             <Route path={'/test'} element={<Test/>}/>
             <Route path='*' element={<BadRequest/>}/>
