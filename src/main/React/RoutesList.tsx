@@ -5,8 +5,8 @@ import { Login } from '../../pages/Login/Login'
 import { NewPassword } from '../../pages/NewPassword/NewPassword'
 import { Profile } from '../../pages/Profile/Profile'
 import { Registration } from '../../pages/Registration/Registration'
-import { RestorePassword } from '../../pages/RestorePassword/RestorePassword'
 import { BadRequest } from '../../pages/404/404'
+import { RestorePassword } from '../../pages/RestorePassword/f-1-ui/RestorePassword'
 
 
 const RoutesList = () => {

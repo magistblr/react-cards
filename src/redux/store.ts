@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunkMiddleware from "redux-thunk"
+import { forgotReducer } from "../pages/RestorePassword/f-2-bll/forgotReducer";
 import { loginReducer } from "./reducers/loginReducer";
 
 
@@ -9,6 +10,8 @@ export type RootStateType = ReturnType<typeof rootReducer>
 
 export const rootReducer = combineReducers({
   login: loginReducer,
+  restore: forgotReducer,
+  // dialogsPage: dialogsReducer,
   // sidebarPage: sidebarReducer,
 });
 
