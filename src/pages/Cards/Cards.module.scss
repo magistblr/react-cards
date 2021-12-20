@@ -13,24 +13,47 @@ tbody {
   background-color: white;
 }
 
-th {
+.thSpan {
   padding: 10px;
   white-space: nowrap;
+  position: relative;
+  cursor: pointer;
+}
 
-  span {
-    position: relative;
-    cursor: pointer;
+.thButton {
+  &::after {
+    position: absolute;
+    content: '➪';
+    transform: rotate(90deg);
+    top: 20px;
+    left: 113px;
+    display: none;
 
+    &:active {
+      top: 14px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: '➪';
+    transform: rotate(-90deg);
+    top: 0;
+    left: 111px;
+    display: none;
+  }
+
+  &:hover {
     &::before {
-      position: absolute;
-      content: '➪';
-      transform: rotate(90deg);
-      top: 3px;
-      left: 0;
+      display: block;
     }
 
+    &::after {
+      display: block;
+    }
   }
 }
+
 
 td {
   position: relative;
