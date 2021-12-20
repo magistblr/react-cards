@@ -1,3 +1,30 @@
-.wrapper{
-  
+$mainBg: #fff;
+$secondBg: #21268f;
+$thirdBg: #d7d8ef;
+$mutedBg: rgba(36, 37, 74, 0.2);
+
+$mainColor: #2d2e46;
+$mutedColor: rgba(45, 46, 70, 0.5);
+$secondColor: #21268f;
+
+
+
+.registrationBlock {
+  padding: 30px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
 }

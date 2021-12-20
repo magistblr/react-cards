@@ -5,7 +5,6 @@ import { loginReducer } from "./reducers/loginReducer";
 import {packsReducer} from "./reducers/packs-reducer/packsReduser";
 
 
-
 export type RootStateType = ReturnType<typeof rootReducer>
 
 
