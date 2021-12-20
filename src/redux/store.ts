@@ -2,6 +2,8 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunkMiddleware from "redux-thunk"
 import { forgotReducer } from "../pages/RestorePassword/f-2-bll/forgotReducer";
 import { loginReducer } from "./reducers/loginReducer";
+// import { cardsReducer } from "./reducers/cardsReducer";
+import { packsReducer } from "./reducers/packsReducer";
 
 
 
