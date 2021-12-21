@@ -1,4 +1,3 @@
-import { AddedUserType } from './reducers/registrationReducer';
 
 
 export const action1 = (value: any) => ({ type: 'cardsReducer/NEW_ARRAY_CARDS'} as const);

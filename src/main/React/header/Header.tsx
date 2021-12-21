@@ -28,6 +28,12 @@ const Header = () => {
                     <li className={styles.navItem}>
                         <NavLink className={styles.navLink} to="/test">Test</NavLink>
                     </li>
+                    <li className={styles.navItem}>
+                        <NavLink className={styles.navLink} to="/cards">Cards</NavLink>
+                    </li>
+                    <li className={styles.navItem}>
+                        <NavLink className={styles.navLink} to="/packs">Packs</NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>
