@@ -8,8 +8,8 @@ export const Api = {
     login(email: string, password: string, rememberMe: boolean) {
         return instance.post<ResponsType>('auth/login', {email, password, rememberMe})
     },
-    addUser(data: addUserType) {
-        return instance.post<addUserType, AxiosResponse<ResponseAddUserType>>("auth/register", data, {});
+    createUser(data: createUserType) {
+        return instance.post<createUserType, AxiosResponse<ResponseCreateUserType>>("auth/register", data, {});
     }
     // logOut() {
     //     return instance.delete('auth/me')
@@ -24,12 +24,12 @@ export const Api = {
 
 
 //types
-export type addUserType = {
+export type createUserType = {
     email: string
     password: string
 }
 
-export type ResponseAddUserType = addUserType & {
+export type ResponseCreateUserType = {
     addedUser: {}
     error?: string
 }
