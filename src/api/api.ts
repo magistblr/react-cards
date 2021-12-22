@@ -1,18 +1,19 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from "axios";
 
 const instance = axios.create({
     baseURL: "http://localhost:7542/2.0/",
     withCredentials: true,
-})
+});
+
 export const Api = {
     login(email: string, password: string, rememberMe: boolean) {
         return instance.post<ResponsType>('auth/login', {email, password, rememberMe})
     },
+    createUser(data: createUserType) {
+        return instance.post<createUserType, AxiosResponse<ResponseCreateUserType>>("auth/register", data, {});
+    }
     // logOut() {
     //     return instance.delete('auth/me')
-    // },
-    // loginRegistration<LoginRegistrationType>(email: string, password: string) {
-    //     return instance.post('auth/register', {email, password})
     // },
     // SetNewPassword(password: string, resetPasswordToken: string) {
     //     return instance.post<NewPasswordType>('auth/set-new-password', {password, resetPasswordToken})
@@ -20,6 +21,18 @@ export const Api = {
     // ForgotPassword(email: string, from: string, message: string) {
     //     return instance.post<NewPasswordType>('auth/forgot', {email, from, message})
     // }
+};
+
+
+//types
+export type createUserType = {
+    email: string
+    password: string
+}
+
+export type ResponseCreateUserType = {
+    addedUser: {}
+    error?: string
 }
 
 export type ResponsType = {
@@ -42,10 +55,6 @@ export type ResponsType = {
 //     info: string
 //     error: string
 // }
-
-export type LoginRegistrationType = {
-    error?: string
-}
 
 // export type ForgotPasswordType = {
 //     email: string
