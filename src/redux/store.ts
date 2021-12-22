@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunkMiddleware from "redux-thunk"
+import thunkMiddleware from "redux-thunk";
 import { forgotReducer } from "../pages/RestorePassword/f-2-bll/forgotReducer";
+import { registrationReducer } from "./reducers/registrationReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import {packsReducer} from "./reducers/packs-reducer/packsReduser";
 
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
   packs:packsReducer,
   // dialogsPage: dialogsReducer,
   // sidebarPage: sidebarReducer,
+  registrationPage: registrationReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
