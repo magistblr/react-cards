@@ -35,6 +35,24 @@ export type ResponseCreateUserType = {
     error?: string
 }
 
+export const packListApi = {
+    getPacks() {
+        return instance.get("cards/pack")
+    },
+    // logOut() {
+    //     return instance.delete('auth/me')
+    // },
+    // loginRegistration<LoginRegistrationType>(email: string, password: string) {
+    //     return instance.post('auth/register', {email, password})
+    // },
+    // SetNewPassword(password: string, resetPasswordToken: string) {
+    //     return instance.post<NewPasswordType>('auth/set-new-password', {password, resetPasswordToken})
+    // },
+    // ForgotPassword(email: string, from: string, message: string) {
+    //     return instance.post<NewPasswordType>('auth/forgot', {email, from, message})
+    // }
+}
+
 export type ResponsType = {
     _id: string;
     email: string;
@@ -49,6 +67,11 @@ export type ResponsType = {
     rememberMe: boolean;
 
     error?: string;
+}
+
+
+export type LoginRegistrationType = {
+    error?: string
 }
 
 // export type NewPasswordType = {
