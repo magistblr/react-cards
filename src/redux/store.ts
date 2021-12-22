@@ -15,8 +15,6 @@ export const rootReducer = combineReducers({
   restore: forgotReducer,
   packs: packsReducer,
   cards: cardsReducer,
-  // dialogsPage: dialogsReducer,
-  // sidebarPage: sidebarReducer,
   registrationPage: registrationReducer
 });
 

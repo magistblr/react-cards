@@ -8,6 +8,7 @@ import {
 } from "../../redux/reducers/packs-reducer/packsReduser";
 import {RootStateType} from "../../redux/store";
 import Table from "../../components/features/Table/Table";
+import { PacksTC } from '../../redux/reducers/cardsReducer';
 
 
 
@@ -27,6 +28,12 @@ function Packs() {
     const valueFromInput = useSelector<RootStateType, string>(state => state.packs.valueFromThePacksInput)
     const valueFromButton = useSelector<RootStateType, string>(state => state.packs.valueFromThePacksButton)
     console.log(valueFromButton)
+
+    useEffect(() => {
+        dispatch(PacksTC())
+    }, [])
+
+
     useEffect(() => {
         dispatch(getStateTC(valueFromInput, valueFromButton))
     }, [valueFromInput, valueFromButton])

@@ -1,12 +1,12 @@
 import s from './Pack.module.scss';
 import React, { useEffect, useState } from 'react';
-import { deletePackAC, PackType } from '../../../redux/reducers/cardsReducer';
+import { deletePackAC, PacksTC} from '../../../redux/reducers/cardsReducer';
 import { useDispatch } from 'react-redux';
-import { packListApi } from '../../../api/api';
+import { packListApi, ResponsTypePack } from '../../../api/api';
 
 type PropsPackType = {
-    id: number
-    pack: PackType
+    id: string
+    pack: ResponsTypePack
 }
 
 export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
@@ -15,18 +15,11 @@ export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
 
   const dispatch = useDispatch()
 
-  const name = pack.pack.name;
-  const cards = pack.pack.cards;
-  const lastUpdate = pack.pack.lastUpdate;
-  const createdBy = pack.pack.createdBy;
-  const deleteButton = pack.pack.actions.delete;
-  const editButton = pack.pack.actions.edit;
-  const learnButton = pack.pack.actions.learn;
+  const name = pack.name;
+  const cards = pack.cardsCount;
+  const lastUpdate = pack.updated;
+  const createdBy = pack.user_name;
 
-  useEffect(() => {
-    packListApi.getPacks().then(res => console.log(res))
-    // console.log();
-  }, [])
 
 
   return (
@@ -36,18 +29,13 @@ export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
       <td>{lastUpdate}</td>
       <td>{createdBy}</td>
       <td className={s.buttonsCell}>
-        {deleteButton && <button className={s.cellDel} onClick={()=> dispatch(deletePackAC(id))}>Delete</button>}
-        {change}
-        {/* {/* {editButton && <button className={s.cellCommon} onClick={()=> dispatch(editPackAC(id))}>Edit</button>} */}
-        {/* {learnButton && <button className={s.cellCommon} onClick={()=> dispatch(learnPackAC(id))}>Learn</button>} */}
+        <button className={s.cellDel} onClick={()=> dispatch(deletePackAC(id))}>Delete</button>
+        {/* <button className={s.cellCommon} onClick={()=> dispatch(editPackAC(id))}>Edit</button>
+        <button className={s.cellCommon} onClick={()=> dispatch(learnPackAC(id))}>Learn</button> */}
       </td>
     </tr>
   );
 };
 
 
-
-function getPacks(): any {
-  throw new Error('Function not implemented.');
-}
 

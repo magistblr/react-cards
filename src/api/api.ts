@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 const instance = axios.create({
-    baseURL: "http://localhost:7542/2.0/",
+    baseURL: "https://neko-back.herokuapp.com/2.0",
     withCredentials: true,
 });
 
@@ -11,7 +11,7 @@ export const Api = {
     },
     createUser(data: createUserType) {
         return instance.post<createUserType, AxiosResponse<ResponseCreateUserType>>("auth/register", data, {});
-    }
+    },
     // logOut() {
     //     return instance.delete('auth/me')
     // },
@@ -21,7 +21,17 @@ export const Api = {
     // ForgotPassword(email: string, from: string, message: string) {
     //     return instance.post<NewPasswordType>('auth/forgot', {email, from, message})
     // }
+    me() {
+        return instance.post<any>('auth/me', {})
+    }
 };
+
+
+export const packListApi = {
+    getPacks() {
+        return instance.get<ResponsTypePacks>("cards/pack")
+    },
+}
 
 
 //types
@@ -35,23 +45,6 @@ export type ResponseCreateUserType = {
     error?: string
 }
 
-export const packListApi = {
-    getPacks() {
-        return instance.get("cards/pack")
-    },
-    // logOut() {
-    //     return instance.delete('auth/me')
-    // },
-    // loginRegistration<LoginRegistrationType>(email: string, password: string) {
-    //     return instance.post('auth/register', {email, password})
-    // },
-    // SetNewPassword(password: string, resetPasswordToken: string) {
-    //     return instance.post<NewPasswordType>('auth/set-new-password', {password, resetPasswordToken})
-    // },
-    // ForgotPassword(email: string, from: string, message: string) {
-    //     return instance.post<NewPasswordType>('auth/forgot', {email, from, message})
-    // }
-}
 
 export type ResponsType = {
     _id: string;
@@ -67,6 +60,36 @@ export type ResponsType = {
     rememberMe: boolean;
 
     error?: string;
+}
+
+
+
+export type ResponsTypePack = {
+    cardsCount: number
+    created: Date
+    grade: number
+    more_id: string
+    name: string
+    path: string
+    private: boolean
+    rating: number
+    shots: number
+    type: string
+    updated: Date
+    user_id: string
+    user_name: string
+    __v: number
+    _id: string
+}
+
+export type ResponsTypePacks = {
+    cardPacks: ResponsTypePack[]
+    cardPacksTotalCount: number
+    maxCardsCount: number
+    minCardsCount: number
+    page: number
+    pageCount: number
+    token: string
 }
 
 

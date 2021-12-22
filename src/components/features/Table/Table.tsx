@@ -29,8 +29,8 @@ function Table() {
         <tbody>
             {packs.map(elem =>
                                         <Pack
-                                                key={elem.id}
-                                                id={elem.id}
+                                                key={elem._id}
+                                                id={elem._id}
                                                 pack={elem}
                                                 >
                                         </Pack>
