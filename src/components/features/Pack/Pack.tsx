@@ -1,9 +1,8 @@
 import s from './Pack.module.scss';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { packListApi, ResponsTypePack } from '../../../api/api';
-import { deletePackAC } from '../../../redux/reducers/packsReducer';
-import Preloader from '../Preloader/Preloader';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {ResponsTypePack} from '../../../api/api';
+import {deletePackAC} from '../../../redux/reducers/packsReducer';
 
 type PropsPackType = {
     id: string

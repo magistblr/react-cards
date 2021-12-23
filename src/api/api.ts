@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, {AxiosResponse} from "axios";
 
 const instance = axios.create({
     baseURL: "https://neko-back.herokuapp.com/2.0",
@@ -6,10 +6,10 @@ const instance = axios.create({
 });
 
 export const Api = {
-    login(email: string, password: string, rememberMe: boolean) {
+    login (email: string, password: string, rememberMe: boolean) {
         return instance.post<ResponsType>('auth/login', {email, password, rememberMe})
     },
-    createUser(data: createUserType) {
+    createUser (data: createUserType) {
         return instance.post<createUserType, AxiosResponse<ResponseCreateUserType>>("auth/register", data, {});
     },
     // logOut() {
@@ -21,15 +21,20 @@ export const Api = {
     // ForgotPassword(email: string, from: string, message: string) {
     //     return instance.post<NewPasswordType>('auth/forgot', {email, from, message})
     // }
-    me() {
+    me () {
         return instance.post<any>('auth/me', {})
     }
 };
 
 
 export const packListApi = {
-    getPacks() {
-        return instance.get<ResponsTypePacks>("cards/pack")
+    getPacks(sortPacks: string)  {
+        return instance.get<ResponsTypePacks>("cards/pack", {
+            params: {
+                pageCount: 10,
+                sortPacks,
+            }
+        })
     },
 }
 
@@ -61,7 +66,6 @@ export type ResponsType = {
 
     error?: string;
 }
-
 
 
 export type ResponsTypePack = {

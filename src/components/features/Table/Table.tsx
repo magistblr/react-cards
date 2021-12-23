@@ -25,9 +25,9 @@ function Table() {
         <thead className={s.header}>
             <tr>
                 <th align="left"><ButtonMinMax name={'Name'}/></th>
-                <th align="left"><ButtonMinMax name={'Cards'}/></th>
-                <th align="left"><ButtonMinMax name={'Last Updated'}/></th>
-                <th align="left"><ButtonMinMax name={'Created by'}/></th>
+                <th align="left"><ButtonMinMax name={'cardsCount'}/></th>
+                <th align="left"><ButtonMinMax name={'updated'}/></th>
+                <th align="left"><ButtonMinMax name={'created'}/></th>
                 <th align="left"><span>Actions</span></th>
             </tr>
         </thead>
@@ -37,8 +37,8 @@ function Table() {
                                                 key={elem._id}
                                                 id={elem._id}
                                                 pack={elem}
-                                                >
-                                        </Pack>
+                                                />
+
                                         )
             }
         </tbody>

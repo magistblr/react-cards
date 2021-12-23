@@ -8,10 +8,6 @@ import { Api } from '../../../api/api';
 
 export const App = () => {
 
-  useEffect(() => {
-    Api.me()
-  }, [])
-
   return (
       <div className={s.wrapper}>
         <Header/>
