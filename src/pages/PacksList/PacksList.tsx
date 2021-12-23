@@ -1,19 +1,19 @@
-import s from './Packs.module.scss'
+import s from './PacksList.module.scss'
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {
     getStateTC,
     SelectedValueOfTheButtonInPacksAC,
     ValueFromThePacksInputAC
-} from "../../redux/reducers/packs-reducer/packsReduser";
+} from "../../redux/reducers/packsListReduсer.ts/packsListReduсer";
 import {RootStateType} from "../../redux/store";
 import Table from "../../components/features/Table/Table";
-import { PacksTC } from '../../redux/reducers/cardsReducer';
+import { PacksTC } from '../../redux/reducers/packsReducer';
 
 
 
 
-function Packs() {
+function PacksList() {
     let [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch()
     const inputChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +25,8 @@ function Packs() {
     const SelectedValueOfTheSelect = (e: string) => {
         dispatch(SelectedValueOfTheButtonInPacksAC(e))
     }
-    const valueFromInput = useSelector<RootStateType, string>(state => state.packs.valueFromThePacksInput)
-    const valueFromButton = useSelector<RootStateType, string>(state => state.packs.valueFromThePacksButton)
+    const valueFromInput = useSelector<RootStateType, string>(state => state.packsList.valueFromThePacksInput)
+    const valueFromButton = useSelector<RootStateType, string>(state => state.packsList.valueFromThePacksButton)
     console.log(valueFromButton)
 
     useEffect(() => {
@@ -101,6 +101,6 @@ function Packs() {
     </div>
 }
 
-export default Packs
+export default PacksList
 
 

@@ -1,8 +1,9 @@
 import s from './Pack.module.scss';
 import React, { useEffect, useState } from 'react';
-import { deletePackAC, PacksTC} from '../../../redux/reducers/cardsReducer';
 import { useDispatch } from 'react-redux';
 import { packListApi, ResponsTypePack } from '../../../api/api';
+import { deletePackAC } from '../../../redux/reducers/packsReducer';
+import Preloader from '../Preloader/Preloader';
 
 type PropsPackType = {
     id: string
@@ -12,15 +13,17 @@ type PropsPackType = {
 export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
   const [change, setChange] = useState()
   const {id, pack } = props;
-
   const dispatch = useDispatch()
 
+  console.log(pack);
+  
+  
   const name = pack.name;
   const cards = pack.cardsCount;
   const lastUpdate = pack.updated;
   const createdBy = pack.user_name;
-
-
+  
+  
 
   return (
     <tr>

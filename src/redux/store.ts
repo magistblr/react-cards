@@ -3,8 +3,9 @@ import thunkMiddleware from "redux-thunk";
 import { forgotReducer } from "../pages/RestorePassword/f-2-bll/forgotReducer";
 import { registrationReducer } from "./reducers/registrationReducer";
 import { cardsReducer } from "./reducers/cardsReducer";
+import { packsReducer } from "./reducers/packsReducer";
 import { loginReducer } from "./reducers/loginReducer";
-import {packsReducer} from "./reducers/packs-reducer/packsReduser";
+import { packsListReducer } from "./reducers/packsListReduсer.ts/packsListReduсer";
 
 
 export type RootStateType = ReturnType<typeof rootReducer>
@@ -13,8 +14,9 @@ export type RootStateType = ReturnType<typeof rootReducer>
 export const rootReducer = combineReducers({
   login: loginReducer,
   restore: forgotReducer,
-  packs: packsReducer,
+  packsList: packsListReducer,
   cards: cardsReducer,
+  packs: packsReducer,
   registrationPage: registrationReducer
 });
 

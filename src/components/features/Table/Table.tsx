@@ -3,8 +3,9 @@ import ButtonMinMax from "../Button-min-max/ButtonMinMax";
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../../redux/store";
-import { PacksType } from "../../../redux/reducers/cardsReducer";
 import { Pack } from "../Pack/Pack";
+import { PacksType } from "../../../redux/reducers/packsReducer";
+import Preloader from "../Preloader/Preloader";
 
 // type TableType = {
 //     packs: 
@@ -12,9 +13,13 @@ import { Pack } from "../Pack/Pack";
 
 function Table() {
 
-    const packs = useSelector<RootStateType, PacksType>(state => state.cards)
+    const packs = useSelector<RootStateType, PacksType>(state => state.packs)
     console.log(packs);
-    
+
+    if(!packs.length){
+        return <Preloader/>
+    }
+
 
     return <table className={s.tableStyle}>
         <thead className={s.header}>

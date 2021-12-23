@@ -7,7 +7,7 @@ const initialState = {
     valueFromThePacksButton:''
 }
 
-export const packsReducer = (state = initialState, action: ActionTypes): initialStateType => {
+export const packsListReducer = (state = initialState, action: ActionTypes): initialStateType => {
     switch (action.type) {
         case "VALUE-FROM-THE-PACKS-INPUT":
             return {...state,valueFromThePacksInput : action.valueOfTheInput}

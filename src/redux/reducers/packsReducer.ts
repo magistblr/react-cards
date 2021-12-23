@@ -1,4 +1,4 @@
-import { ResponsTypePack } from './../../api/api';
+import { ResponsTypePack } from '../../api/api';
 import { Dispatch } from 'redux';
 import { packListApi } from '../../api/api';
 
@@ -21,12 +21,12 @@ import { packListApi } from '../../api/api';
 //     }
 
 
-// export type CardsType = Array<PackType>
+// export type PacksType = Array<PackType>
 
-export type CardsType = Array<ResponsTypePack>
+export type PacksType = Array<ResponsTypePack>
 
 
-// const initialState: CardsType = [
+// const initialState: PacksType = [
 //   {
 //     id: 1,
 //     pack: {
@@ -83,17 +83,17 @@ export type CardsType = Array<ResponsTypePack>
 //   };
 // };
 
-const initialState: CardsType = []
+const initialState: PacksType = []
 
 
 
-export const cardsReducer = (state: CardsType = initialState, action: ActionTypes,): CardsType => {
+export const packsReducer = (state: PacksType = initialState, action: ActionTypes,): PacksType => {
   switch (action.type) {
-    case "CardsReducer/SET-Cards":
-        return [...action.Cards]
-    case "CardsReducer/ADD-PACK":
+    case "packsReducer/SET-PACKS":
+        return [...action.packs]
+    case "packsReducer/ADD-PACK":
         return [{...action.pack}, ...state]
-    case "CardsReducer/DELETE-PACK":
+    case "packsReducer/DELETE-PACK":
         return state.filter(pack => pack._id !== action.id)
     default:
       return state;
@@ -101,29 +101,29 @@ export const cardsReducer = (state: CardsType = initialState, action: ActionType
 };
 
 
-type ActionTypes =    ReturnType<typeof setCardsAC>
-                    | ReturnType<typeof addCardAC>
-                    | ReturnType<typeof deleteCardAC>
+type ActionTypes =    ReturnType<typeof setPacksAC>
+                    | ReturnType<typeof addPackAC>
+                    | ReturnType<typeof deletePackAC>
 
 
-export const setCardsAC = (Cards: CardsType) => {return {type: "CardsReducer/SET-Cards", Cards} as const};
-export const addCardAC = (pack: any) => {return {type: "CardsReducer/ADD-PACK", pack} as const};
-export const deleteCardAC = (id: string) => {return {type: "CardsReducer/DELETE-PACK", id} as const};
+export const setPacksAC = (packs: PacksType) => {return {type: "packsReducer/SET-PACKS", packs} as const};
+export const addPackAC = (pack: any) => {return {type: "packsReducer/ADD-PACK", pack} as const};
+export const deletePackAC = (id: string) => {return {type: "packsReducer/DELETE-PACK", id} as const};
 
-// export const CardsTC = () => (dispatch: Dispatch) => {
-//     return packListApi.getCards()
-//         .then((res) => {
-//             dispatch(setCardsAC(res.data.cardCards))
-//         })
-//         .catch((rej) => {
-//             console.warn(rej)
-//         })
-//   };
+export const PacksTC = () => (dispatch: Dispatch) => {
+    return packListApi.getPacks()
+        .then((res) => {
+            dispatch(setPacksAC(res.data.cardPacks))
+        })
+        .catch((rej) => {
+            console.warn(rej)
+        })
+};
 
 // export const RemoveTC = () => (dispatch: Dispatch) => {
-//     return packListApi.getCards()
+//     return packListApi.getPacks()
 //         .then((res) => {
-//             dispatch(setCardsAC(res.data.cardCards))
+//             dispatch(setPacksAC(res.data.cardPacks))
 //         })
 //         .catch((rej) => {
 //             console.warn(rej)
