@@ -14,9 +14,6 @@ export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
   const {id, pack } = props;
   const dispatch = useDispatch()
 
-  console.log(pack);
-  
-  
   const name = pack.name;
   const cards = pack.cardsCount;
   const lastUpdate = pack.updated;

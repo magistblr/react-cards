@@ -1,3 +1,26 @@
 .wrapper{
-  
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.span{
+  margin: 0  10px 0 30px;
+}
+.button{
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px #444242;
+  transition: all 0.3s ease;
+  &:hover{
+       box-shadow: 4px 4px 4px 4px #444242;
+    color: black;
+    &:active{
+      position: relative;
+      box-shadow: 2px 2px 2px 2px #444242;
+      color: black;
+    }
+  }
 }

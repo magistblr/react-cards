@@ -1,9 +1,8 @@
 import s from "./ButtonMinMax.module.scss";
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {PacksTC} from "../../../redux/reducers/packsReducer";
-import { SortPacksAC } from "../../../redux/reducers/packsListReduсer.ts/packsListReduсer";
-import {RootStateType} from "../../../redux/store";
+import {useDispatch} from "react-redux";
+import {SortPacksAC} from "../../../redux/reducers/packsListReduсer.ts/packsListReduсer";
+
 export type PropsType={
     name : string
 }
@@ -12,13 +11,12 @@ function ButtonMinMax(props:PropsType) {
     const dispatch = useDispatch()
     const SortUpPlusName = (name:string) => {
         dispatch(SortPacksAC('0' + name))
-        dispatch(PacksTC(sortPacks))
+        //dispatch(PacksTC(sortPacks,''))
     }
     const sortDownPlusName = (name:string) => {
         dispatch(SortPacksAC('1' + name))
-        dispatch(PacksTC(sortPacks))
+        //dispatch(PacksTC(sortPacks,''))
     }
-    const sortPacks = useSelector<RootStateType, string>(state => state.packsList.sortPacks)
     return <div className={s.wrapper}>
         <div className={s.sd}>
             <span className={s.thSpan}>{props.name}</span>
