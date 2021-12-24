@@ -1,7 +1,7 @@
 import s from './Pack.module.scss';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {ResponsTypePack} from '../../../api/api';
+import {packListApi, ResponsTypePack} from '../../../api/api';
 import {deletePackAC} from '../../../redux/reducers/packsReducer';
 
 type PropsPackType = {
@@ -28,7 +28,7 @@ export const Pack: React.FC<PropsPackType> = ({ ...props }) => {
       <td>{lastUpdate}</td>
       <td>{createdBy}</td>
       <td className={s.buttonsCell}>
-        <button className={s.cellDel} onClick={()=> dispatch(deletePackAC(id))}>Delete</button>
+        <button className={s.cellDel} onClick={()=> packListApi.deletePacks(id)}>Delete</button>
         {/* <button className={s.cellCommon} onClick={()=> dispatch(editPackAC(id))}>Edit</button>
         <button className={s.cellCommon} onClick={()=> dispatch(learnPackAC(id))}>Learn</button> */}
       </td>

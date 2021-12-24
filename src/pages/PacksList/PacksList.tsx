@@ -12,6 +12,30 @@ import DoubleSlider from "../../components/features/doubleSlider/DoubleSlider";
 import Preloader from '../../components/features/Preloader/Preloader';
 import {getAuthMeTC} from "../../redux/reducers/loginReducer";
 import {Navigate} from "react-router-dom";
+import { packListApi } from '../../api/api';
+
+export type cardsPacksType = {
+    name: string
+    path: string
+    grade: number
+    shots: number
+    rating: number
+    deckCover: string
+    private: boolean
+    type: string
+
+}
+
+const cardsPack: cardsPacksType = {
+    name: "for Sergei",
+    path: "/def",
+    grade: 0,
+    shots: 0,
+    rating: 0,
+    deckCover: "url or base64",
+    private: false,
+    type: "pack",
+}
 
 
 function PacksList () {
@@ -39,6 +63,13 @@ function PacksList () {
     if (!IsLogin) {
         return <Navigate to={"/"}/>
     }
+
+
+    const addPackHandler = () => {
+        packListApi.addPacks(cardsPack)
+                    .then(res => console.log(res))
+    }
+
     return <>
         {status === "loading" ? <Preloader/>
             : <div className={s.wrapper}>
@@ -70,7 +101,7 @@ function PacksList () {
                                     <button onClick={() => Search()}  className={s.searchButton}>Search</button>
                                 </div>
 
-                                <button className={s.addNewPack}> Add new pack</button>
+                                <button className={s.addNewPack} onClick={addPackHandler}> Add new pack</button>
                             </div>
                             <Table/>
                             <div className={s.pagination}>

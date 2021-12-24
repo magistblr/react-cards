@@ -1,11 +1,12 @@
 import s from "./Table.module.scss";
 import ButtonMinMax from "../Button-min-max/ButtonMinMax";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootStateType } from "../../../redux/store";
 import { Pack } from "../Pack/Pack";
 import { PacksType } from "../../../redux/reducers/packsReducer";
 import Preloader from "../Preloader/Preloader";
+import { packListApi } from "../../../api/api";
 
 // type TableType = {
 //     packs: 
@@ -18,7 +19,6 @@ function Table() {
     if(!packs.length){
         return <Preloader/>
     }
-
 
     return <table className={s.tableStyle}>
         <thead className={s.header}>
