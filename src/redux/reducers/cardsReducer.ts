@@ -87,28 +87,28 @@ const initialState: CardsType = []
 
 
 
-export const cardsReducer = (state: CardsType = initialState, action: ActionTypes,): CardsType => {
+export const cardsReducer = (state: CardsType = initialState, action: any,): CardsType => {
   switch (action.type) {
-    case "CardsReducer/SET-Cards":
-        return [...action.Cards]
-    case "CardsReducer/ADD-PACK":
-        return [{...action.pack}, ...state]
-    case "CardsReducer/DELETE-PACK":
-        return state.filter(pack => pack._id !== action.id)
+    // case "CardsReducer/SET-Cards":
+    //     return [...action.Cards]
+    // case "CardsReducer/ADD-PACK":
+    //     return [{...action.pack}, ...state]
+    // case "CardsReducer/DELETE-PACK":
+    //     return state.filter(pack => pack._id !== action.id)
     default:
       return state;
   }
 };
 
 
-type ActionTypes =    ReturnType<typeof setCardsAC>
-                    | ReturnType<typeof addCardAC>
-                    | ReturnType<typeof deleteCardAC>
+// type ActionTypes =    ReturnType<typeof setCardsAC>
+//                     | ReturnType<typeof addCardAC>
+//                     | ReturnType<typeof deleteCardAC>
 
 
-export const setCardsAC = (Cards: CardsType) => {return {type: "CardsReducer/SET-Cards", Cards} as const};
-export const addCardAC = (pack: any) => {return {type: "CardsReducer/ADD-PACK", pack} as const};
-export const deleteCardAC = (id: string) => {return {type: "CardsReducer/DELETE-PACK", id} as const};
+// export const setCardsAC = (Cards: CardsType) => {return {type: "CardsReducer/SET-Cards", Cards} as const};
+// export const addCardAC = (pack: any) => {return {type: "CardsReducer/ADD-PACK", pack} as const};
+// export const deleteCardAC = (id: string) => {return {type: "CardsReducer/DELETE-PACK", id} as const};
 
 // export const CardsTC = () => (dispatch: Dispatch) => {
 //     return packListApi.getCards()
