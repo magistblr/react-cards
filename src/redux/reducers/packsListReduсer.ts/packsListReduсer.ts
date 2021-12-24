@@ -4,7 +4,8 @@ export type initialStateType = typeof initialState
 
 const initialState = {
     valueFromThePacksInput : '',
-    valueFromThePacksButton:''
+    valueFromThePacksButton:'',
+    sortPacks: '',
 }
 
 export const packsListReducer = (state = initialState, action: ActionTypes): initialStateType => {
@@ -13,6 +14,8 @@ export const packsListReducer = (state = initialState, action: ActionTypes): ini
             return {...state,valueFromThePacksInput : action.valueOfTheInput}
         case "VALUE-FROM-THE-PACKS-SELECT":
             return {...state,valueFromThePacksButton : action.valueOfTheButton}
+        case "SORT-PACKS":
+            return {...state, sortPacks: action.zeroOrOneAndcellName}
         default:
             return state
     }
@@ -30,10 +33,16 @@ export const SelectedValueOfTheButtonInPacksAC = (valueOfTheButton: string) => {
         valueOfTheButton
     }as const
 }
-
+export const SortPacksAC = (zeroOrOneAndcellName: string) => {
+    return {
+        type: 'SORT-PACKS',
+        zeroOrOneAndcellName
+    } as const
+}
 export const getStateTC = (valueFromInput:string,valueFromSelect:string) => (dispatch: Dispatch<any>)=> {
 return
 }
 type ActionTypes =
     | ReturnType<typeof ValueFromThePacksInputAC>
     | ReturnType<typeof SelectedValueOfTheButtonInPacksAC>
+    | ReturnType<typeof SortPacksAC>

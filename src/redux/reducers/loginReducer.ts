@@ -96,7 +96,19 @@ export const LoginTC = (email: string, password: string, rememberMe: boolean) =>
             dispatch(PreloaderStatus('succeeded'))
         })
 }
+export const getAuthMeTC = () => (dispatch: Dispatch) => {
+    dispatch(PreloaderStatus('loading'))
+    return Api.me()
+        .then((res) => {
 
+        })
+        .catch((err) => {
+
+        })
+        .finally(() => {
+            dispatch(PreloaderStatus('succeeded'))
+        })
+}
 // export const LogOutTC = () => (dispatch: Dispatch) => {
 //     dispatch(PreloaderStatus('loading'))
 //     return Api.logOut()

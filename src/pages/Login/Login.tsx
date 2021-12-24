@@ -1,11 +1,10 @@
 import React, {ChangeEvent, useState} from "react";
 import s from './Login.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {OpenCloseEyeAC, LoginTC, RequestStatusType, ErrorLogin} from "../../redux/reducers/loginReducer";
+import {ErrorLogin, LoginTC, OpenCloseEyeAC} from "../../redux/reducers/loginReducer";
 
-import {Navigate} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 import {RootStateType} from "../../redux/store";
-import {NavLink} from "react-router-dom";
 import OpenCloseEye from "../../components/features/OpenEye/OpenCloseEye";
 import Preloader from "../../components/features/Preloader/Preloader";
 
