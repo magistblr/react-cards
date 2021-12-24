@@ -7,27 +7,16 @@ import {
 } from "../../redux/reducers/packsListReduсer.ts/packsListReduсer";
 import {RootStateType} from "../../redux/store";
 import Table from "../../components/features/Table/Table";
-import {PacksTC} from '../../redux/reducers/packsReducer';
+import {addPackTC, cardsPackAddType, PacksTC} from '../../redux/reducers/packsReducer';
 import DoubleSlider from "../../components/features/doubleSlider/DoubleSlider";
 import Preloader from '../../components/features/Preloader/Preloader';
 import {getAuthMeTC} from "../../redux/reducers/loginReducer";
 import {Navigate} from "react-router-dom";
 import { packListApi } from '../../api/api';
 
-export type cardsPacksType = {
-    name: string
-    path: string
-    grade: number
-    shots: number
-    rating: number
-    deckCover: string
-    private: boolean
-    type: string
 
-}
-
-const cardsPack: cardsPacksType = {
-    name: "for Sergei",
+const cardsPackAdd: cardsPackAddType = {
+    name: "pack is death",
     path: "/def",
     grade: 0,
     shots: 0,
@@ -66,13 +55,11 @@ function PacksList () {
 
 
     const addPackHandler = () => {
-        packListApi.addPacks(cardsPack)
-                    .then(res => console.log(res))
+        dispatch(addPackTC(cardsPackAdd))
     }
 
     return <>
-        {status === "loading" ? <Preloader/>
-            : <div className={s.wrapper}>
+            <div className={s.wrapper}>
                 <div className={s.container}>
                     <div className={s.sidebar}>
                         <div className={s.sidebarContainer}>
@@ -103,7 +90,8 @@ function PacksList () {
 
                                 <button className={s.addNewPack} onClick={addPackHandler}> Add new pack</button>
                             </div>
-                            <Table/>
+                            {status === "loading" ? <Preloader/> :
+                            <Table />}
                             <div className={s.pagination}>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas"
                                      data-icon="arrow-circle-right"
@@ -144,7 +132,7 @@ function PacksList () {
                         </div>
                     </div>
                 </div>
-            </div>}
+            </div>
     </>
 
 

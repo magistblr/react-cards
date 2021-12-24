@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import { cardsPacksType } from "../pages/PacksList/PacksList";
+import { cardsPackAddType } from "../redux/reducers/packsReducer";
 
 const instance = axios.create({
     baseURL: "https://neko-back.herokuapp.com/2.0",
@@ -39,10 +39,13 @@ export const packListApi = {
         })
     },
     deletePacks(id: string)  {
-        return instance.delete<any>(`cards/pack/?${id}`)
+        return instance.delete<any>(`cards/pack/?id=${id}`)
     },
-    addPacks(cardsPack: cardsPacksType)  {
+    addPacks(cardsPack: cardsPackAddType)  {
         return instance.post<any>(`cards/pack`, {cardsPack})
+    },
+    editPacks(id: string, name: any)  {
+        return instance.put<any>(`cards/pack`, {cardsPack: {_id: id, name}})
     },
 }
 

@@ -8,12 +8,10 @@ import { PacksType } from "../../../redux/reducers/packsReducer";
 import Preloader from "../Preloader/Preloader";
 import { packListApi } from "../../../api/api";
 
-// type TableType = {
-//     packs: 
-// }
+type TableType = {
+}
 
-function Table() {
-
+function Table(props: TableType) {
     const packs = useSelector<RootStateType, PacksType>(state => state.packs)
 
     if(!packs.length){
