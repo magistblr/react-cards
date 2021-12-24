@@ -14,7 +14,7 @@ import PacksList from '../../pages/PacksList/PacksList'
 const RoutesList = () => {
     return (
         <Routes>
-            <Route path={'/login'} element={<Login/>}/>
+            <Route path={'/'} element={<Login/>}/>
             <Route path={'/register'} element={<Registration/>}/>
             <Route path={'/newPassword'} element={<NewPassword/>}/>
             <Route path={'/passwordRecovery'} element={<RestorePassword/>}/>
