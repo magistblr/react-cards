@@ -1,6 +1,5 @@
 import { ResponsTypePack } from './../../api/api';
 import { Dispatch } from 'redux';
-import { packListApi } from '../../api/api';
 
 
 
