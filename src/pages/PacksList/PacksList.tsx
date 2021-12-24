@@ -3,7 +3,7 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {
     SelectedValueOfTheButtonInPacksAC,
-    ValueFromThePacksInputAC
+    SortPacksAC
 } from "../../redux/reducers/packsListReduсer.ts/packsListReduсer";
 import {RootStateType} from "../../redux/store";
 import Table from "../../components/features/Table/Table";
@@ -11,29 +11,34 @@ import {PacksTC} from '../../redux/reducers/packsReducer';
 import DoubleSlider from "../../components/features/doubleSlider/DoubleSlider";
 import Preloader from '../../components/features/Preloader/Preloader';
 import {getAuthMeTC} from "../../redux/reducers/loginReducer";
+import {Navigate} from "react-router-dom";
 
 
 function PacksList () {
     let [inputValue, setInputValue] = useState('')
     const status = useSelector<RootStateType, string>(state => state.login.status)
+    let IsLogin = useSelector<RootStateType, boolean>(state => state.login.isLogin)
     const sortPacks = useSelector<RootStateType, string>(state => state.packsList.sortPacks)
     const dispatch = useDispatch()
     const inputChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.currentTarget.value)
     }
-    const AddNewPack = () => {
-        dispatch(ValueFromThePacksInputAC(inputValue))
+    const Search = () => {
+        dispatch(PacksTC(sortPacks,inputValue))
     }
     const SelectedValueOfTheSelect = (e: string) => {
         dispatch(SelectedValueOfTheButtonInPacksAC(e))
     }
-    const valueFromInput = useSelector<RootStateType, string>(state => state.packsList.valueFromThePacksInput)
-    const valueFromButton = useSelector<RootStateType, string>(state => state.packsList.valueFromThePacksButton)
 
     useEffect(() => {
         dispatch(getAuthMeTC())
-        dispatch(PacksTC(sortPacks))
-    }, [])
+        dispatch(PacksTC(sortPacks,inputValue))
+
+    }, [sortPacks])
+
+    if (!IsLogin) {
+        return <Navigate to={"/"}/>
+    }
     return <>
         {status === "loading" ? <Preloader/>
             : <div className={s.wrapper}>
@@ -57,11 +62,15 @@ function PacksList () {
                         <div className={s.mainFieldContainer}>
                             <h2>Packs list</h2>
                             <div className={s.searchBar}>
-                                <div className={s.inputFieldContainer}><input onChange={inputChangeValue}
-                                                                              placeholder="Search..."
-                                                                              className={s.inputField}
-                                                                              type="text"/></div>
-                                <button onClick={() => AddNewPack()} className={s.searchButton}> Add new pack</button>
+                                <div className={s.inButContainer}>
+                                    <div className={s.inputFieldContainer}><input onChange={inputChangeValue}
+                                                                                  placeholder="Search..."
+                                                                                  className={s.inputField}
+                                                                                  type="text"/></div>
+                                    <button onClick={() => Search()}  className={s.searchButton}>Search</button>
+                                </div>
+
+                                <button className={s.addNewPack}> Add new pack</button>
                             </div>
                             <Table/>
                             <div className={s.pagination}>

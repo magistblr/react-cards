@@ -14,7 +14,6 @@ import Preloader from "../Preloader/Preloader";
 function Table() {
 
     const packs = useSelector<RootStateType, PacksType>(state => state.packs)
-    console.log(packs);
 
     if(!packs.length){
         return <Preloader/>

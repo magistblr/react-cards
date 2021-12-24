@@ -1,7 +1,7 @@
 import { ResponsTypePack } from '../../api/api';
 import { Dispatch } from 'redux';
 import { packListApi } from '../../api/api';
-import {PreloaderStatus} from "./loginReducer";
+import {IsLoginAC, PreloaderStatus} from "./loginReducer";
 
 
 
@@ -111,14 +111,15 @@ export const setPacksAC = (packs: PacksType) => {return {type: "packsReducer/SET
 export const addPackAC = (pack: any) => {return {type: "packsReducer/ADD-PACK", pack} as const};
 export const deletePackAC = (id: string) => {return {type: "packsReducer/DELETE-PACK", id} as const};
 
-export const PacksTC =(sortPacks: string) => (dispatch: Dispatch) => {
+export const PacksTC =(sortPacks: string,name:string) => (dispatch: Dispatch) => {
     dispatch(PreloaderStatus('loading'))
-    return packListApi.getPacks(sortPacks)
+    return packListApi.getPacks(sortPacks,name)
         .then((res) => {
+            dispatch(IsLoginAC(true))
             dispatch(setPacksAC(res.data.cardPacks))
         })
         .catch((rej) => {
-            console.warn(rej)
+            dispatch(IsLoginAC(false))
         })
         .finally(() => {
             dispatch(PreloaderStatus('succeeded'))

@@ -28,11 +28,12 @@ export const Api = {
 
 
 export const packListApi = {
-    getPacks(sortPacks: string)  {
-        return instance.get<ResponsTypePacks>("cards/pack", {
+    getPacks(sortPacks: string,packName:string)  {
+        return instance.get<ResponsTypePacks>(`cards/pack`, {
             params: {
                 pageCount: 10,
                 sortPacks,
+                packName,
             }
         })
     },
